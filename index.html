@@ -148,6 +148,64 @@
         }
       });
     });
+
+    <!-- Adicione esse código no final do seu HTML ou dentro de uma tag <script> -->
+<script>
+  // Variáveis para o modal e imagens
+  const modal = document.querySelector('.modal');
+  const modalContent = document.querySelector('.modal-content');
+  const modalCaption = document.querySelector('.modal-caption');
+  const fotos = document.querySelectorAll('.foto img');
+  const modalClose = document.querySelector('.modal-close');
+
+  let currentIndex = 0;
+
+  // Função para abrir o modal com a imagem
+  function openModal(index) {
+    modal.style.display = 'flex';
+    modalContent.src = fotos[index].src;  // Carregar a imagem no modal
+    modalCaption.textContent = fotos[index].alt;  // Carregar legenda se houver
+    currentIndex = index;  // Definir o índice da imagem atual
+  }
+
+  // Função para fechar o modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Adicionar evento de click para cada foto
+  fotos.forEach((foto, index) => {
+    foto.addEventListener('click', () => openModal(index));
+  });
+
+  // Fechar o modal ao clicar no botão de fechar
+  modalClose.addEventListener('click', closeModal);
+
+  // Fechar o modal ao clicar fora da imagem ampliada
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Navegar entre as imagens com as setas do teclado
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display === 'flex') {
+      if (e.key === 'ArrowRight') {
+        // Avançar para a próxima imagem
+        currentIndex = (currentIndex + 1) % fotos.length;
+        modalContent.src = fotos[currentIndex].src;
+        modalCaption.textContent = fotos[currentIndex].alt;
+      } else if (e.key === 'ArrowLeft') {
+        // Voltar para a imagem anterior
+        currentIndex = (currentIndex - 1 + fotos.length) % fotos.length;
+        modalContent.src = fotos[currentIndex].src;
+        modalCaption.textContent = fotos[currentIndex].alt;
+      }
+    }
+  });
+</script>
+
   </script>
 </body>
 </html>
