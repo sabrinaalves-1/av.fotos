@@ -1,28 +1,27 @@
-<!DOCTYPE html> <!-- Define o tipo do documento como HTML5 -->
-<html lang="pt-BR"> <!-- Define o idioma da página como Português do Brasil -->
+<!DOCTYPE html> <!-- Define o documento como HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
 <head>
-  <meta charset="UTF-8" /> <!-- Define a codificação de caracteres como UTF-8 -->
+  <meta charset="UTF-8" /> <!-- Define codificação de caracteres para UTF-8 -->
   <title>Galeria</title> <!-- Título que aparece na aba do navegador -->
-  <link rel="stylesheet" href="style.css" /> <!-- Importa o arquivo de estilos CSS externo -->
+  <link rel="stylesheet" href="style.css" /> <!-- Link para o arquivo CSS externo -->
 </head>
 <body>
 
   <h1 class="titulo">Galeria:</h1> <!-- Título principal da página -->
 
-  <div class="galeria" id="galeria"> <!-- Container principal da galeria de fotos -->
+  <!-- Container principal da galeria -->
+  <div class="galeria" id="galeria">
 
-    <!-- Cada bloco .foto representa um aluno com uma foto e nome -->
+    <!-- Alunos de 1 a 25, cada bloco com imagem e nome -->
 
-    <div class="foto" tabindex="0"> <!-- Um item da galeria. tabindex permite navegação por teclado -->
-      <img src="1.jpg" alt="Aluno 1" /> <!-- Imagem do aluno 1 -->
-      <div class="nome">1 Adriel Vinicius da Luz Tomaz</div> <!-- Nome do aluno abaixo da imagem -->
+    <div class="foto" tabindex="0">
+      <img src="1.jpg" alt="Aluno 1" />
+      <div class="nome">1 Adriel Vinicius da Luz Tomaz</div>
     </div>
-
-    <!-- Repetição do mesmo padrão para os demais alunos -->
 
     <div class="foto" tabindex="0">
       <img src="2.jpg" alt="Aluno 2" />
-      <div class="nome"> 2 Breno Ferreira de Brito</div>
+      <div class="nome">2 Breno Ferreira de Brito</div>
     </div>
 
     <div class="foto" tabindex="0">
@@ -52,7 +51,7 @@
 
     <div class="foto" tabindex="0">
       <img src="8.jpg" alt="Aluno 8" />
-      <div class="nome"> 8 GUILHERME DOS REIS SOARES DOS SANTOS</div>
+      <div class="nome">8 GUILHERME DOS REIS SOARES DOS SANTOS</div>
     </div>
 
     <div class="foto" tabindex="0">
@@ -67,17 +66,17 @@
 
     <div class="foto" tabindex="0">
       <img src="11.jpg" alt="Aluno 11" />
-      <div class="nome"> 11 JANAINE NUNES DA SILVA</div>
+      <div class="nome">11 JANAINE NUNES DA SILVA</div>
     </div>
 
     <div class="foto" tabindex="0">
       <img src="12.jpg" alt="Aluno 12" />
-      <div class="nome"> 12 JOAO GABRIEL CARMO DE BONFIM</div>
+      <div class="nome">12 JOAO GABRIEL CARMO DE BONFIM</div>
     </div>
 
     <div class="foto" tabindex="0">
       <img src="13.jpg" alt="Aluno 13" />
-      <div class="nome"> 13 JOÃO GABRIEL JOSE MARTINS DE OLIVEIRA</div>
+      <div class="nome">13 JOÃO GABRIEL JOSE MARTINS DE OLIVEIRA</div>
     </div>
 
     <div class="foto" tabindex="0">
@@ -112,7 +111,7 @@
 
     <div class="foto" tabindex="0">
       <img src="20.jpg" alt="Aluno 20" />
-      <div class="nome">20</div>
+      <div class="nome">20 PEDRO EDUARDO DOARTE</div>
     </div>
 
     <div class="foto" tabindex="0">
@@ -142,25 +141,57 @@
 
   </div> <!-- Fim da galeria -->
 
+  <!-- Modal: Container que aparecerá para mostrar a foto em tela cheia -->
+  <div id="modal" class="modal" style="display:none;">
+    <span id="fechar" class="fechar">&times;</span> <!-- Botão para fechar o modal -->
+    <img id="imgModal" class="modal-conteudo" alt="Imagem ampliada" /> <!-- Imagem ampliada -->
+    <div id="nomeModal" class="nomeModal"></div> <!-- Nome do aluno no modal -->
+  </div>
+
   <script>
-    const galeria = document.getElementById('galeria'); // Pega o container da galeria pelo ID
-    let fotoPrincipal = null; // Variável para guardar qual foto está em destaque
+    // Seleciona elementos da página
+    const galeria = document.getElementById('galeria'); // Container da galeria
+    const modal = document.getElementById('modal'); // Container do modal
+    const imgModal = document.getElementById('imgModal'); // Imagem dentro do modal
+    const nomeModal = document.getElementById('nomeModal'); // Nome do aluno dentro do modal
+    const fechar = document.getElementById('fechar'); // Botão fechar modal
 
-    galeria.addEventListener('click', e => { // Evento ao clicar na galeria
-      const foto = e.target.closest('.foto'); // Pega o elemento da foto clicada
-      if (!foto) return; // Se não clicou numa foto, não faz nada
+    // Função para abrir o modal com a imagem e nome clicados
+    function abrirModal(foto) {
+      const img = foto.querySelector('img'); // Pega a imagem do bloco clicado
+      const nome = foto.querySelector('.nome').textContent; // Pega o nome do aluno
 
-      if (fotoPrincipal) { // Se já existe uma foto principal
-        if (fotoPrincipal === foto) { // Se clicou na mesma, tira o destaque
-          foto.classList.remove('principal');
-          fotoPrincipal = null;
-          return;
-        }
-        fotoPrincipal.classList.remove('principal'); // Remove destaque da anterior
+      imgModal.src = img.src; // Define a imagem do modal
+      imgModal.alt = img.alt; // Define o alt da imagem do modal
+      nomeModal.textContent = nome; // Define o nome no modal
+
+      modal.style.display = 'flex'; // Exibe o modal
+    }
+
+    // Evento ao clicar na galeria (delegação)
+    galeria.addEventListener('click', e => {
+      const foto = e.target.closest('.foto'); // Verifica se clicou em uma foto
+      if (!foto) return; // Se clicou fora da foto, não faz nada
+      abrirModal(foto); // Abre o modal com a foto clicada
+    });
+
+    // Fecha o modal ao clicar no botão "X"
+    fechar.addEventListener('click', () => {
+      modal.style.display = 'none'; // Esconde o modal
+    });
+
+    // Fecha o modal se clicar fora da imagem (fundo do modal)
+    modal.addEventListener('click', e => {
+      if (e.target === modal) { // Se o clique foi no fundo (modal) e não na imagem ou nome
+        modal.style.display = 'none'; // Fecha o modal
       }
+    });
 
-      foto.classList.add('principal'); // Adiciona destaque à nova foto clicada
-      fotoPrincipal = foto; // Atualiza a variável com a nova principal
+    // Fecha o modal ao apertar ESC no teclado
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+      }
     });
   </script>
 
