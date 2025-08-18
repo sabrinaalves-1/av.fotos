@@ -1,58 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Galeria de Fotos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Galeria</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1 class="titulo">Galeria de Fotos</h1>
+  <h1 class="titulo">Galeria:</h1>
 
   <div class="galeria" id="galeria">
-    <!-- As imagens serão inseridas via JavaScript -->
+
+    
+    <div class="foto" tabindex="0">
+      <img src="1.jpg" alt="Aluno 1" />
+      <div class="nome">Aluno 1</div>
+    </div>
+
+    <div class="foto" tabindex="0">
+      <img src="2.jpg" alt="Aluno 2" />
+      <div class="nome">Aluno 2</div>
+    </div>
+
+    <div class="foto" tabindex="0">
+      <img src="3.jpg" alt="Aluno 3" />
+      <div class="nome">Aluno 2</div>
+    </div>
+    
+  <div class="foto" tabindex="0">
+      <img src="4.jpg" alt="Aluno 4" />
+      <div class="nome">Aluno 2</div>
+    </div>
+
+  <div class="foto" tabindex="0">
+      <img src="5.jpg" alt="Aluno 5" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="6.jpg" alt="Aluno 6" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="7.jpg" alt="Aluno 7" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="8.jpg" alt="Aluno 8" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="9.jpg" alt="Aluno 9" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="10.jpg" alt="Aluno 10" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="11.jpg" alt="Aluno 11" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="12.jpg" alt="Aluno 12" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="13.jpg" alt="Aluno 13" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="14.jpg" alt="Aluno 14" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="15.jpg" alt="Aluno 15" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="16.jpg" alt="Aluno 16" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="17.jpg" alt="Aluno 17" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="18.jpg" alt="Aluno 18" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="19.jpg" alt="Aluno 19" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="20.jpg" alt="Aluno 20" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="21.jpg" alt="Aluno 21" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="22.jpg" alt="Aluno 22" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="23.jpg" alt="Aluno 23" />
+      <div class="nome">Aluno 2</div>
+    </div>
+  <div class="foto" tabindex="0">
+      <img src="24.jpg" alt="Aluno 24" />
+      <div class="nome">Aluno 2</div>
+    </div>
+
+    <div class="foto" tabindex="0">
+      <img src="25.jpg" alt="Aluno 25" />
+      <div class="nome">Aluno 25</div>
+    </div>
+
   </div>
 
   <script>
-    const galeria = document.getElementById("galeria");
-    let principalIndex = null;
+    const galeria = document.getElementById('galeria');
+    let fotoPrincipal = null;
 
-    function criarGaleria() {
-      for (let i = 1; i <= 25; i++) {
-        const div = document.createElement("div");
-        div.className = "foto";
-        div.dataset.index = i;
+    galeria.addEventListener('click', e => {
+      const foto = e.target.closest('.foto');
+      if (!foto) return;
 
-        const img = document.createElement("img");
-        img.src = `imagens/${i}.jpg`;
-        img.alt = `Foto ${i}`;
-
-        div.appendChild(img);
-        galeria.appendChild(div);
+      if (fotoPrincipal) {
+        if (fotoPrincipal === foto) {
+          foto.classList.remove('principal');
+          fotoPrincipal = null;
+          return;
+        }
+        fotoPrincipal.classList.remove('principal');
       }
 
-      galeria.addEventListener("click", function(e) {
-        const foto = e.target.closest(".foto");
-        if (!foto) return;
-
-        const fotos = document.querySelectorAll(".foto");
-
-        if (principalIndex !== null) {
-          fotos[principalIndex - 1].classList.remove("principal");
-
-          if (foto.dataset.index == principalIndex) {
-            principalIndex = null;
-            return;
-          }
-        }
-
-        foto.classList.add("principal");
-        principalIndex = foto.dataset.index;
-      });
-    }
-
-    criarGaleria();
+      foto.classList.add('principal');
+      fotoPrincipal = foto;
+    });
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
