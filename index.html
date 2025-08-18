@@ -111,9 +111,17 @@
       <div class="nome">25 VITOR QUEIROZ DE BRITO NASCIMENTO</div> 
     </div> 
   </div> <!-- Fim da galeria --> 
+
+  <!-- Overlay para imagem ampliada -->
+  <div id="overlay" class="overlay" style="display:none;">
+    <img id="imgAmplificada" src="" alt="Imagem ampliada" />
+    <span id="fecharOverlay" class="fechar-overlay" style="cursor:pointer;position:absolute;top:20px;right:30px;font-size:40px;color:#fff;">×</span>
+  </div>
+
   <script> 
     const galeria = document.getElementById('galeria'); // Pega o container da galeria pelo ID 
     let fotoPrincipal = null; // Variável para guardar qual foto está em destaque 
+
     galeria.addEventListener('click', e => { // Evento ao clicar na galeria 
       const foto = e.target.closest('.foto'); // Pega o elemento da foto clicada 
       if (!foto) return; // Se não clicou numa foto, não faz nada 
@@ -128,6 +136,38 @@
       foto.classList.add('principal'); // Adiciona destaque à nova foto clicada 
       fotoPrincipal = foto; // Atualiza a variável com a nova principal 
     }); 
+
+    // CÓDIGO PARA AMPLIAR IMAGEM NA TELA INTEIRA
+    const overlay = document.getElementById('overlay');
+    const imgAmplificada = document.getElementById('imgAmplificada');
+    const fecharOverlay = document.getElementById('fecharOverlay');
+
+    galeria.addEventListener('click', e => {
+      const foto = e.target.closest('.foto');
+      if (!foto) return;
+
+      const img = foto.querySelector('img');
+      if (!img) return;
+
+      // Define o src da imagem ampliada
+      imgAmplificada.src = img.src;
+      imgAmplificada.alt = img.alt;
+
+      // Mostra o overlay
+      overlay.style.display = 'flex';
+    });
+
+    fecharOverlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      imgAmplificada.src = '';
+    });
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+        imgAmplificada.src = '';
+      }
+    });
   </script> 
 </body> 
 </html>
