@@ -163,3 +163,43 @@ body {
   color: #222; 
   /* Cor mais forte para dar destaque */
 }
+/* Overlay que cobre toda a tela para mostrar a imagem ampliada */
+.overlay {
+  position: fixed; /* Fixa na tela */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Largura total da viewport */
+  height: 100vh; /* Altura total da viewport */
+  background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro translúcido */
+  display: flex; /* Usar flex para centralizar */
+  justify-content: center; /* Centraliza horizontal */
+  align-items: center; /* Centraliza vertical */
+  z-index: 1000; /* Fica acima de tudo */
+  cursor: zoom-out; /* Cursor para indicar que pode fechar */
+}
+
+/* Imagem ampliada dentro do overlay */
+.overlay img {
+  max-width: 90vw; /* Máximo 90% da largura da tela */
+  max-height: 90vh; /* Máximo 90% da altura da tela */
+  border-radius: 12px; /* Cantos arredondados para ficar bonito */
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7); /* Sombra suave para destacar */
+  object-fit: contain; /* Mantém proporção, sem cortar */
+}
+
+/* Botão de fechar (x) - já tem estilo inline, mas pode melhorar aqui se quiser */
+.fechar-overlay {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none; /* Evita seleção do texto */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.fechar-overlay:hover {
+  color: #ff4444; /* Muda cor no hover para indicar ação */
+}
