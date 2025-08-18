@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeria de Fotos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <h1 class="titulo">Galeria de Fotos</h1>
+
+  <div class="galeria" id="galeria">
+    <!-- As imagens serão inseridas via JavaScript -->
+  </div>
+
+  <script>
+    const galeria = document.getElementById("galeria");
+    let principalIndex = null;
+
+    function criarGaleria() {
+      for (let i = 1; i <= 25; i++) {
+        const div = document.createElement("div");
+        div.className = "foto";
+        div.dataset.index = i;
+
+        const img = document.createElement("img");
+        img.src = `imagens/${i}.jpg`;
+        img.alt = `Foto ${i}`;
+
+        div.appendChild(img);
+        galeria.appendChild(div);
+      }
+
+      galeria.addEventListener("click", function(e) {
+        const foto = e.target.closest(".foto");
+        if (!foto) return;
+
+        const fotos = document.querySelectorAll(".foto");
+
+        if (principalIndex !== null) {
+          fotos[principalIndex - 1].classList.remove("principal");
+
+          if (foto.dataset.index == principalIndex) {
+            principalIndex = null;
+            return;
+          }
+        }
+
+        foto.classList.add("principal");
+        principalIndex = foto.dataset.index;
+      });
+    }
+
+    criarGaleria();
+  </script>
+
+</body>
+</html>
