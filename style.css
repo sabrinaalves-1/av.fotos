@@ -83,3 +83,53 @@ body {
   font-size: 1.3rem; /* Aumenta o tamanho da fonte */
   color: #222; /* Cor mais forte para dar destaque */
 }
+/* Modal: tela cheia com fundo escuro semi-transparente */
+.modal {
+  position: fixed;
+  z-index: 1000; /* acima de tudo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Imagem ampliada dentro do modal */
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.7);
+  margin-bottom: 15px;
+}
+
+/* Legenda da imagem */
+.modal-caption {
+  color: #ccc;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Botão fechar */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #bbb;
+}
+
