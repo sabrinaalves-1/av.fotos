@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Galeria</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1 class="titulo">Galeria:</h1>
-  <div class="galeria" id="galeria">
-    <div class="foto" tabindex="0">
-      <img src="1.jpg" alt="Aluno 1" />
-      <div class="nome">1 Adriel Vinicius da Luz Tomaz</div>
+<!DOCTYPE html> <!-- Declaração do tipo do documento, informando que este é um documento HTML5 -->
+<html lang="pt-BR"> <!-- Início da tag HTML, com atributo de idioma definido como português brasileiro -->
+<head> <!-- Início do cabeçalho da página -->
+  <meta charset="UTF-8" /> <!-- Definição da codificação de caracteres como UTF-8 para suportar caracteres especiais e acentuação -->
+  <title>Galeria</title> <!-- Título da página que aparece na aba do navegador -->
+  <link rel="stylesheet" href="style.css" /> <!-- Link para o arquivo CSS externo que vai estilizar a página -->
+</head> <!-- Fim do cabeçalho da página -->
+<body> <!-- Início do corpo da página, onde o conteúdo visível é exibido -->
+
+  <h1 class="titulo">Galeria:</h1> <!-- Título principal da página, com a classe 'titulo' para estilização -->
+  <div class="galeria" id="galeria"> <!-- Container para a galeria de fotos, com a classe 'galeria' e o id 'galeria' -->
+    <!-- Cada foto é representada por um bloco div com a classe 'foto' -->
+    <div class="foto" tabindex="0"> <!-- Bloco de cada foto, que permite interação com o teclado -->
+      <img src="1.jpg" alt="Aluno 1" /> <!-- Imagem do aluno 1 -->
+      <div class="nome">1 Adriel Vinicius da Luz Tomaz</div> <!-- Nome do aluno -->
     </div>
     <div class="foto" tabindex="0">
       <img src="2.jpg" alt="Aluno 2" />
@@ -108,104 +110,101 @@
       <img src="25.jpg" alt="Aluno 25" />
       <div class="nome">25 VITOR QUEIROZ DE BRITO NASCIMENTO</div>
     </div>
-  </div>
+  </div> <!-- Fim da galeria -->
 
   <!-- Modal para imagem ampliada -->
-  <div id="modal" class="modal">
-    <span id="modalClose" class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImg" alt="Imagem ampliada" />
-    <div id="modalCaption" class="modal-caption"></div>
-  </div>
+  <div id="modal" class="modal"> <!-- Início do modal que vai exibir as imagens ampliadas -->
+    <span id="modalClose" class="modal-close">&times;</span> <!-- Botão para fechar o modal -->
+    <img class="modal-content" id="modalImg" alt="Imagem ampliada" /> <!-- Imagem que será ampliada dentro do modal -->
+    <div id="modalCaption" class="modal-caption"></div> <!-- Legenda da imagem no modal -->
+  </div> <!-- Fim do modal -->
 
+   <!-- Script de JavaScript para interação da galeria e o modal -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const galeria = document.getElementById('galeria');
-      const modal = document.getElementById('modal');
-      const modalImg = document.getElementById('modalImg');
-      const modalCaption = document.getElementById('modalCaption');
-      const modalClose = document.getElementById('modalClose');
+    document.addEventListener('DOMContentLoaded', () => { <!-- Espera o conteúdo do DOM ser carregado antes de rodar o script -->
+      const galeria = document.getElementById('galeria'); <!-- Seleciona o elemento com a classe 'galeria' -->
+      const modal = document.getElementById('modal'); <!-- Seleciona o modal (caixa de visualização ampliada) -->
+      const modalImg = document.getElementById('modalImg'); <!-- Seleciona a imagem dentro do modal -->
+      const modalCaption = document.getElementById('modalCaption'); <!-- Seleciona a legenda dentro do modal -->
+      const modalClose = document.getElementById('modalClose'); <!-- Seleciona o botão de fechar do modal -->
 
-      galeria.addEventListener('click', e => {
-        const foto = e.target.closest('.foto');
-        if (!foto) return;
+      galeria.addEventListener('click', e => { <!-- Adiciona um evento de clique na galeria -->
+        const foto = e.target.closest('.foto'); <!-- Verifica qual foto foi clicada -->
+        if (!foto) return; <!-- Se não for uma foto, interrompe a execução -->
 
-        const img = foto.querySelector('img');
-        const caption = foto.querySelector('.nome').textContent;
+        const img = foto.querySelector('img'); <!-- Obtém a imagem dentro da foto clicada -->
+        const caption = foto.querySelector('.nome').textContent; <!-- Obtém o nome do aluno que está na legenda -->
 
-        modal.style.display = 'flex';
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        modalCaption.textContent = caption;
+        modal.style.display = 'flex'; <!-- Exibe o modal ao clicar na foto -->
+        modalImg.src = img.src; <!-- Atualiza a imagem dentro do modal para a imagem clicada -->
+        modalImg.alt = img.alt; <!-- Atualiza o atributo alt da imagem ampliada -->
+        modalCaption.textContent = caption; <!-- Atualiza a legenda da imagem no modal -->
       });
 
-      modalClose.addEventListener('click', () => {
-        modal.style.display = 'none';
+      modalClose.addEventListener('click', () => { <!-- Adiciona um evento de clique no botão de fechar do modal -->
+        modal.style.display = 'none'; <!-- Fecha o modal -->
       });
 
-      modal.addEventListener('click', e => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
+      modal.addEventListener('click', e => { <!-- Adiciona um evento de clique no fundo do modal -->
+        if (e.target === modal) { <!-- Verifica se o clique foi na área externa à imagem -->
+          modal.style.display = 'none'; <!-- Fecha o modal se o clique for no fundo -->
         }
       });
     });
 
-    <!-- Adicione esse código no final do seu HTML ou dentro de uma tag <script> -->
+    // Variáveis para o modal e imagens
+    const modal = document.querySelector('.modal'); <!-- Seleciona o modal -->
+    const modalContent = document.querySelector('.modal-content'); <!-- Seleciona a imagem dentro do modal -->
+    const modalCaption = document.querySelector('.modal-caption'); <!-- Seleciona a legenda dentro do modal -->
+    const fotos = document.querySelectorAll('.foto img'); <!-- Seleciona todas as imagens das fotos na galeria -->
+    const modalClose = document.querySelector('.modal-close'); <!-- Seleciona o botão de fechar o modal -->
 
-  // Variáveis para o modal e imagens
-  const modal = document.querySelector('.modal');
-  const modalContent = document.querySelector('.modal-content');
-  const modalCaption = document.querySelector('.modal-caption');
-  const fotos = document.querySelectorAll('.foto img');
-  const modalClose = document.querySelector('.modal-close');
+    let currentIndex = 0; <!-- Variável para controlar o índice da imagem atual no modal -->
 
-  let currentIndex = 0;
-
-  // Função para abrir o modal com a imagem
-  function openModal(index) {
-    modal.style.display = 'flex';
-    modalContent.src = fotos[index].src;  // Carregar a imagem no modal
-    modalCaption.textContent = fotos[index].alt;  // Carregar legenda se houver
-    currentIndex = index;  // Definir o índice da imagem atual
-  }
-
-  // Função para fechar o modal
-  function closeModal() {
-    modal.style.display = 'none';
-  }
-
-  // Adicionar evento de click para cada foto
-  fotos.forEach((foto, index) => {
-    foto.addEventListener('click', () => openModal(index));
-  });
-
-  // Fechar o modal ao clicar no botão de fechar
-  modalClose.addEventListener('click', closeModal);
-
-  // Fechar o modal ao clicar fora da imagem ampliada
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
+    // Função para abrir o modal com a imagem
+    function openModal(index) {
+      modal.style.display = 'flex'; <!-- Exibe o modal -->
+      modalContent.src = fotos[index].src;  <!-- Carrega a imagem no modal -->
+      modalCaption.textContent = fotos[index].alt;  <!-- Carrega legenda da imagem -->
+      currentIndex = index;  <!-- Atualiza o índice da imagem atual -->
     }
-  });
 
-  // Navegar entre as imagens com as setas do teclado
-  document.addEventListener('keydown', (e) => {
-    if (modal.style.display === 'flex') {
-      if (e.key === 'ArrowRight') {
-        // Avançar para a próxima imagem
-        currentIndex = (currentIndex + 1) % fotos.length;
-        modalContent.src = fotos[currentIndex].src;
-        modalCaption.textContent = fotos[currentIndex].alt;
-      } else if (e.key === 'ArrowLeft') {
-        // Voltar para a imagem anterior
-        currentIndex = (currentIndex - 1 + fotos.length) % fotos.length;
-        modalContent.src = fotos[currentIndex].src;
-        modalCaption.textContent = fotos[currentIndex].alt;
+    // Função para fechar o modal
+    function closeModal() {
+      modal.style.display = 'none'; <!-- Fecha o modal -->
+    }
+
+    // Adicionar evento de click para cada foto
+    fotos.forEach((foto, index) => { <!-- Para cada imagem na galeria, adiciona um evento de clique -->
+      foto.addEventListener('click', () => openModal(index)); <!-- Abre o modal com a imagem correspondente ao índice -->
+    });
+
+    // Fechar o modal ao clicar no botão de fechar
+    modalClose.addEventListener('click', closeModal); <!-- Fecha o modal ao clicar no botão de fechar -->
+
+    // Fechar o modal ao clicar fora da imagem ampliada
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) { <!-- Se o clique for na área de fundo do modal -->
+        closeModal(); <!-- Fecha o modal -->
       }
-    }
-  });
+    });
 
-  </script>
-</body>
-</html>
+    // Navegar entre as imagens com as setas do teclado
+    document.addEventListener('keydown', (e) => { <!-- Adiciona um evento de teclado -->
+      if (modal.style.display === 'flex') { <!-- Verifica se o modal está visível -->
+        if (e.key === 'ArrowRight') { <!-- Se a tecla pressionada for a seta para a direita -->
+          currentIndex = (currentIndex + 1) % fotos.length; <!-- Avança para a próxima imagem -->
+          modalContent.src = fotos[currentIndex].src; <!-- Atualiza a imagem no modal -->
+          modalCaption.textContent = fotos[currentIndex].alt; <!-- Atualiza a legenda da imagem -->
+        } else if (e.key === 'ArrowLeft') { <!-- Se a tecla pressionada for a seta para a esquerda -->
+          currentIndex = (currentIndex - 1 + fotos.length) % fotos.length; <!-- Volta para a imagem anterior -->
+          modalContent.src = fotos[currentIndex].src; <!-- Atualiza a imagem no modal -->
+          modalCaption.textContent = fotos[currentIndex].alt; <!-- Atualiza a legenda da imagem -->
+        }
+      }
+    });
 
+  </script> <!-- Fim do script JavaScript -->
+  
+</body> <!-- Fim do corpo da página -->
+</html> <!-- Fim do documento HTML -->
