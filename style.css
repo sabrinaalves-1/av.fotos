@@ -8,12 +8,12 @@ body {
 }
 
 
-.titulo {
+..titulo {
   text-align: center;
   margin-bottom: 40px;
   font-weight: 900;
   font-size: 3rem;
-  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  background: linear-gradient(90deg, #4b5320, #a4c639); /* Gradiente de verde musgo */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 2px;
