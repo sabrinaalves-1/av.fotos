@@ -1,99 +1,77 @@
 /* Corpo da página */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e mais legível */
-  background-color: #f0f2f5; /* Cor de fundo mais suave e agradável que o branco puro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
   margin: 0;
-  padding: 40px 20px; /* Espaçamento maior em volta do conteúdo para dar "respiro" visual */
-  color: #333; /* Cor padrão dos textos — um cinza escuro ao invés de preto */
+  padding: 40px 20px;
+  color: #333;
 }
 
 /* Título da galeria */
 .titulo {
-  text-align: center; /* Centraliza o texto */
-  margin-bottom: 40px; /* Espaço entre o título e a galeria */
-  font-weight: 700; /* Negrito forte */
-  font-size: 2.5rem; /* Tamanho grande para destaque */
-  color: #222; /* Tom mais escuro e limpo que o preto puro */
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #222;
 }
 
 /* Container que organiza as fotos em grid */
 .galeria {
-  max-width: 1200px; /* Largura máxima da galeria */
-  margin: 0 auto; /* Centraliza o conteúdo */
-  display: grid; /* Usa layout em grade */
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Cria colunas automáticas, com largura mínima de 180px */
-  gap: 20px; /* Espaço entre os itens do grid */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 /* Cada bloco de foto */
 .foto {
-  background: #ffffff; /* Fundo branco para cada card */
-  border-radius: 12px; /* Cantos mais arredondados para aparência moderna */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra leve que cria profundidade */
-  cursor: pointer; /* Indica que pode clicar */
-  padding: 12px; /* Espaço interno do bloco */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave ao passar o mouse ou clicar */
-  display: flex; /* Layout flexível */
-  flex-direction: column; /* Alinha conteúdo verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Efeito ao passar o mouse por cima */
 .foto:hover {
-  transform: translateY(-5px); /* Eleva o card para dar destaque */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Aumenta a sombra ao passar o mouse */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* Estilo da imagem */
 .foto img {
-  width: 100%; /* Imagem ocupa toda a largura disponível */
-  height: auto; /* Mantém proporção automática */
-  border-radius: 10px; /* Cantos levemente arredondados */
-  object-fit: cover; /* Preenche a área da imagem sem distorcer */
-  aspect-ratio: 3 / 4; /* Mantém todas as imagens na mesma proporção vertical (retrato) */
-  margin-bottom: 10px; /* Espaço entre a imagem e o nome */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 10px;
 }
 
 /* Estilo do nome do aluno */
 .nome {
-  font-weight: 600; /* Negrito leve */
-  font-size: 1rem; /* Tamanho padrão de texto */
-  text-align: center; /* Centraliza o nome */
-  color: #444; /* Cor intermediária entre cinza claro e escuro */
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  color: #444;
 }
 
-/* Quando uma foto é clicada para virar principal */
-.foto.principal {
-  grid-column: span 3; /* Ocupa 3 colunas na grid */
-  grid-row: span 3; /* Ocupa 3 linhas na grid */
-  padding: 20px; /* Mais espaço interno */
-  z-index: 10; /* Garante que fique acima das outras */
-  transform: scale(1.05); /* Aumenta levemente o tamanho */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Sombra mais intensa para destaque */
-  background-color: #ffffff; /* Fundo branco sólido */
-}
-
-/* Imagem quando está em destaque */
-.foto.principal img {
-  border-radius: 14px; /* Cantos ainda mais arredondados */
-}
-
-/* Nome quando a foto está em destaque */
-.foto.principal .nome {
-  font-size: 1.3rem; /* Aumenta o tamanho da fonte */
-  color: #222; /* Cor mais forte para dar destaque */
-}
 /* Modal: tela cheia com fundo escuro semi-transparente */
 .modal {
   position: fixed;
-  z-index: 1000; /* acima de tudo */
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.9);
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -102,9 +80,9 @@ body {
 /* Imagem ampliada dentro do modal */
 .modal-content {
   max-width: 90%;
-  max-height: 80%;
+  max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 30px rgba(255,255,255,0.7);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
   margin-bottom: 15px;
 }
 
@@ -132,4 +110,3 @@ body {
 .modal-close:hover {
   color: #bbb;
 }
-
