@@ -1,199 +1,133 @@
-<!DOCTYPE html> <!-- Define o documento como HTML5 -->
-<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
-<head>
-  <meta charset="UTF-8" /> <!-- Define codificação de caracteres para UTF-8 -->
-  <title>Galeria</title> <!-- Título que aparece na aba do navegador -->
-  <link rel="stylesheet" href="style.css" /> <!-- Link para o arquivo CSS externo -->
-</head>
-<body>
-
-  <h1 class="titulo">Galeria:</h1> <!-- Título principal da página -->
-
-  <!-- Container principal da galeria -->
-  <div class="galeria" id="galeria">
-
-    <!-- Alunos de 1 a 25, cada bloco com imagem e nome -->
-
-    <div class="foto" tabindex="0">
-      <img src="1.jpg" alt="Aluno 1" />
-      <div class="nome">1 Adriel Vinicius da Luz Tomaz</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="2.jpg" alt="Aluno 2" />
-      <div class="nome">2 Breno Ferreira de Brito</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="3.jpg" alt="Aluno 3" />
-      <div class="nome">3 Carlos Emanuel da Silva</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="4.jpg" alt="Aluno 4" />
-      <div class="nome">4 Cleiton Douglas Araujo devSouza</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="5.jpg" alt="Aluno 5" />
-      <div class="nome">5 Derek Eduardo Delgado de Souza</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="6.jpg" alt="Aluno 6" />
-      <div class="nome">6 Felipe nader de Macedo Neves</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="7.jpg" alt="Aluno 7" />
-      <div class="nome">7 Gabriel merico Hort</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="8.jpg" alt="Aluno 8" />
-      <div class="nome">8 GUILHERME DOS REIS SOARES DOS SANTOS</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="9.jpg" alt="Aluno 9" />
-      <div class="nome">9 GUSTAVO MARTINS LYRA</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="10.jpg" alt="Aluno 10" />
-      <div class="nome">10 JACKSON JOSE ADÃO FELIX</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="11.jpg" alt="Aluno 11" />
-      <div class="nome">11 JANAINE NUNES DA SILVA</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="12.jpg" alt="Aluno 12" />
-      <div class="nome">12 JOAO GABRIEL CARMO DE BONFIM</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="13.jpg" alt="Aluno 13" />
-      <div class="nome">13 JOÃO GABRIEL JOSE MARTINS DE OLIVEIRA</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="14.jpg" alt="Aluno 14" />
-      <div class="nome">14 LEONARDO ANTONIO PRADO TRINDADE</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="15.jpg" alt="Aluno 15" />
-      <div class="nome">15 LUCAS CALCIOLARI CONSOLARO DOS SANTOS</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="16.jpg" alt="Aluno 16" />
-      <div class="nome">16 MARIA EDUARDA BORZUK DA FONSECA URBANSKI</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="17.jpg" alt="Aluno 17" />
-      <div class="nome">17 MARIA GABRIELA AQUINO PINHERO</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="18.jpg" alt="Aluno 18" />
-      <div class="nome">18 MATEUS HENRIQUE DE CARVALHO</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="19.jpg" alt="Aluno 19" />
-      <div class="nome">19 MATHEUS DOS SANTOS LOPES</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="20.jpg" alt="Aluno 20" />
-      <div class="nome">20 TRANSFERIDO</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="21.jpg" alt="Aluno 21" />
-      <div class="nome">21 RENAN STEFANI LIRA</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="22.jpg" alt="Aluno 22" />
-      <div class="nome">22 SABRINA DE OLIVEIRA ALVES</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="23.jpg" alt="Aluno 23" />
-      <div class="nome">23 SAMANTHA CHRISTAKIS GARCIA COLUCCI</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="24.jpg" alt="Aluno 24" />
-      <div class="nome">24 VICTOR GABRIEL DE SOUSA</div>
-    </div>
-
-    <div class="foto" tabindex="0">
-      <img src="25.jpg" alt="Aluno 25" />
-      <div class="nome">25 VITOR QUEIROZ DE BRITO NASCIMENTO</div>
-    </div>
-
-  </div> <!-- Fim da galeria -->
-
-  <!-- Modal: Container que aparecerá para mostrar a foto em tela cheia -->
-  <div id="modal" class="modal" style="display:none;">
-    <span id="fechar" class="fechar">&times;</span> <!-- Botão para fechar o modal -->
-    <img id="imgModal" class="modal-conteudo" alt="Imagem ampliada" /> <!-- Imagem ampliada -->
-    <div id="nomeModal" class="nomeModal"></div> <!-- Nome do aluno no modal -->
-  </div>
-
-  <script>
-    // Seleciona elementos da página
-    const galeria = document.getElementById('galeria'); // Container da galeria
-    const modal = document.getElementById('modal'); // Container do modal
-    const imgModal = document.getElementById('imgModal'); // Imagem dentro do modal
-    const nomeModal = document.getElementById('nomeModal'); // Nome do aluno dentro do modal
-    const fechar = document.getElementById('fechar'); // Botão fechar modal
-
-    // Função para abrir o modal com a imagem e nome clicados
-    function abrirModal(foto) {
-      const img = foto.querySelector('img'); // Pega a imagem do bloco clicado
-      const nome = foto.querySelector('.nome').textContent; // Pega o nome do aluno
-
-      imgModal.src = img.src; // Define a imagem do modal
-      imgModal.alt = img.alt; // Define o alt da imagem do modal
-      nomeModal.textContent = nome; // Define o nome no modal
-
-      modal.style.display = 'flex'; // Exibe o modal
-    }
-
-    // Evento ao clicar na galeria (delegação)
-    galeria.addEventListener('click', e => {
-      const foto = e.target.closest('.foto'); // Verifica se clicou em uma foto
-      if (!foto) return; // Se clicou fora da foto, não faz nada
-      abrirModal(foto); // Abre o modal com a foto clicada
-    });
-
-    // Fecha o modal ao clicar no botão "X"
-    fechar.addEventListener('click', () => {
-      modal.style.display = 'none'; // Esconde o modal
-    });
-
-    // Fecha o modal se clicar fora da imagem (fundo do modal)
-    modal.addEventListener('click', e => {
-      if (e.target === modal) { // Se o clique foi no fundo (modal) e não na imagem ou nome
-        modal.style.display = 'none'; // Fecha o modal
-      }
-    });
-
-    // Fecha o modal ao apertar ESC no teclado
-    window.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && modal.style.display === 'flex') {
-        modal.style.display = 'none';
-      }
-    });
-  </script>
-
-</body>
+<!DOCTYPE html> <!-- Define o tipo do documento como HTML5 --> 
+<html lang="pt-BR"> <!-- Define o idioma da página como Português do Brasil --> 
+<head> 
+  <meta charset="UTF-8" /> <!-- Define a codificação de caracteres como UTF-8 --> 
+  <title>Galeria</title> <!-- Título que aparece na aba do navegador --> 
+  <link rel="stylesheet" href="style.css" /> <!-- Importa o arquivo de estilos CSS externo --> 
+</head> 
+<body> 
+  <h1 class="titulo">Galeria:</h1> <!-- Título principal da página --> 
+  <div class="galeria" id="galeria"> <!-- Container principal da galeria de fotos --> 
+    <!-- Cada bloco .foto representa um aluno com uma foto e nome --> 
+    <div class="foto" tabindex="0"> <!-- Um item da galeria. tabindex permite navegação por teclado --> 
+      <img src="1.jpg" alt="Aluno 1" /> <!-- Imagem do aluno 1 --> 
+      <div class="nome">1 Adriel Vinicius da Luz Tomaz</div> <!-- Nome do aluno abaixo da imagem --> 
+    </div> 
+    <!-- Repetição do mesmo padrão para os demais alunos --> 
+    <div class="foto" tabindex="0"> 
+      <img src="2.jpg" alt="Aluno 2" /> 
+      <div class="nome"> 2 Breno Ferreira de Brito</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="3.jpg" alt="Aluno 3" /> 
+      <div class="nome">3 Carlos Emanuel da Silva</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="4.jpg" alt="Aluno 4" /> 
+      <div class="nome">4 Cleiton Douglas Araujo devSouza</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="5.jpg" alt="Aluno 5" /> 
+      <div class="nome">5 Derek Eduardo Delgado de Souza</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="6.jpg" alt="Aluno 6" /> 
+      <div class="nome">6 Felipe nader de Macedo Neves</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="7.jpg" alt="Aluno 7" /> 
+      <div class="nome">7 Gabriel merico Hort</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="8.jpg" alt="Aluno 8" /> 
+      <div class="nome"> 8 GUILHERME DOS REIS SOARES DOS SANTOS</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="9.jpg" alt="Aluno 9" /> 
+      <div class="nome">9 GUSTAVO MARTINS LYRA</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="10.jpg" alt="Aluno 10" /> 
+      <div class="nome">10 JACKSON JOSE ADÃO FELIX</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="11.jpg" alt="Aluno 11" /> 
+      <div class="nome"> 11 JANAINE NUNES DA SILVA</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="12.jpg" alt="Aluno 12" /> 
+      <div class="nome"> 12 JOAO GABRIEL CARMO DE BONFIM</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="13.jpg" alt="Aluno 13" /> 
+      <div class="nome"> 13 JOÃO GABRIEL JOSE MARTINS DE OLIVEIRA</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="14.jpg" alt="Aluno 14" /> 
+      <div class="nome">14 LEONARDO ANTONIO PRADO TRINDADE</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="15.jpg" alt="Aluno 15" /> 
+      <div class="nome">15 LUCAS CALCIOLARI CONSOLARO DOS SANTOS</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="16.jpg" alt="Aluno 16" /> 
+      <div class="nome">16 MARIA EDUARDA BORZUK DA FONSECA URBANSKI</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="17.jpg" alt="Aluno 17" /> 
+      <div class="nome">17 MARIA GABRIELA AQUINO PINHERO</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="18.jpg" alt="Aluno 18" /> 
+      <div class="nome">18 MATEUS HENRIQUE DE CARVALHO</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="19.jpg" alt="Aluno 19" /> 
+      <div class="nome">19 MATHEUS DOS SANTOS LOPES</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="20.jpg" alt="Aluno 20" /> 
+      <div class="nome">20 transferido</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="21.jpg" alt="Aluno 21" /> 
+      <div class="nome">21 RENAN STEFANI LIRA</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="22.jpg" alt="Aluno 22" /> 
+      <div class="nome">22 SABRINA DE OLIVEIRA ALVES</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="23.jpg" alt="Aluno 23" /> 
+      <div class="nome">23 SAMANTHA CHRISTAKIS GARCIA COLUCCI</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="24.jpg" alt="Aluno 24" /> 
+      <div class="nome">24 VICTOR GABRIEL DE SOUSA</div> 
+    </div> 
+    <div class="foto" tabindex="0"> 
+      <img src="25.jpg" alt="Aluno 25" /> 
+      <div class="nome">25 VITOR QUEIROZ DE BRITO NASCIMENTO</div> 
+    </div> 
+  </div> <!-- Fim da galeria --> 
+  <script> 
+    const galeria = document.getElementById('galeria'); // Pega o container da galeria pelo ID 
+    let fotoPrincipal = null; // Variável para guardar qual foto está em destaque 
+    galeria.addEventListener('click', e => { // Evento ao clicar na galeria 
+      const foto = e.target.closest('.foto'); // Pega o elemento da foto clicada 
+      if (!foto) return; // Se não clicou numa foto, não faz nada 
+      if (fotoPrincipal) { // Se já existe uma foto principal 
+        if (fotoPrincipal === foto) { // Se clicou na mesma, tira o destaque 
+          foto.classList.remove('principal'); 
+          fotoPrincipal = null; 
+          return; 
+        } 
+        fotoPrincipal.classList.remove('principal'); // Remove destaque da anterior 
+      } 
+      foto.classList.add('principal'); // Adiciona destaque à nova foto clicada 
+      fotoPrincipal = foto; // Atualiza a variável com a nova principal 
+    }); 
+  </script> 
+</body> 
 </html>
