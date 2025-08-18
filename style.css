@@ -1,75 +1,165 @@
-/* Estiliza o corpo da página */
+/* Corpo da página */
 body {
-  font-family: Arial, sans-serif;          /* Define a fonte principal como Arial, com alternativa genérica sans-serif */
-  background-color: #fafafa;               /* Cor de fundo clara para a página */
-  margin: 0;                               /* Remove a margem padrão do navegador */
-  padding: 20px;                           /* Adiciona espaçamento interno ao redor do conteúdo */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  /* Fonte moderna e mais legível */
+
+  background-color: #f0f2f5; 
+  /* Cor de fundo mais suave e agradável que o branco puro */
+
+  margin: 0;
+  padding: 40px 20px; 
+  /* Espaçamento maior em volta do conteúdo para dar "respiro" visual */
+
+  color: #333; 
+  /* Cor padrão dos textos — um cinza escuro ao invés de preto */
 }
 
-/* Estiliza o título principal da galeria */
+/* Título da galeria */
 .titulo {
-  text-align: center;                     /* Centraliza o texto */
-  margin-bottom: 30px;                    /* Espaço abaixo do título */
-  font-weight: 700;                       /* Deixa o texto em negrito */
-  font-size: 2rem;                        /* Tamanho da fonte em 2 vezes o padrão (aproximadamente 32px) */
+  text-align: center; 
+  /* Centraliza o texto */
+
+  margin-bottom: 40px; 
+  /* Espaço entre o título e a galeria */
+
+  font-weight: 700; 
+  /* Negrito forte */
+
+  font-size: 2.5rem; 
+  /* Tamanho grande para destaque */
+
+  color: #222; 
+  /* Tom mais escuro e limpo que o preto puro */
 }
 
-/* Container da galeria */
+/* Container que organiza as fotos em grid */
 .galeria {
-  max-width: 1100px;                      /* Largura máxima da galeria */
-  margin: 0 auto;                         /* Centraliza a galeria na página */
-  display: grid;                          /* Usa layout em grade (grid) */
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-  /* Cria colunas automáticas com largura mínima de 150px e ajusta conforme o espaço disponível */
-  gap: 15px;                              /* Espaçamento entre os itens (linhas e colunas) */
+  max-width: 1200px; 
+  /* Largura máxima da galeria */
+
+  margin: 0 auto; 
+  /* Centraliza o conteúdo */
+
+  display: grid; 
+  /* Usa layout em grade */
+
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+  /* Cria colunas automáticas, com largura mínima de 180px */
+
+  gap: 20px; 
+  /* Espaço entre os itens do grid */
 }
 
-/* Cada item de foto da galeria */
+/* Cada bloco de foto */
 .foto {
-  background: white;                      /* Fundo branco para o bloco da foto */
-  border-radius: 8px;                     /* Cantos arredondados */
-  box-shadow: 0 2px 7px rgba(0,0,0,0.15); /* Sombra suave para destacar do fundo */
-  cursor: pointer;                        /* Mostra o cursor de clique (mãozinha) */
-  padding: 10px;                          /* Espaço interno ao redor do conteúdo */
-  transition: transform 0.3s ease;        /* Animação suave para transformações (como aumento) */
-  display: flex;                          /* Layout flexível */
-  flex-direction: column;                /* Alinha conteúdo verticalmente (imagem em cima, nome embaixo) */
-  align-items: center;                   /* Centraliza o conteúdo no eixo horizontal */
+  background: #ffffff; 
+  /* Fundo branco para cada card */
+
+  border-radius: 12px; 
+  /* Cantos mais arredondados para aparência moderna */
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  /* Sombra leve que cria profundidade */
+
+  cursor: pointer; 
+  /* Indica que pode clicar */
+
+  padding: 12px; 
+  /* Espaço interno do bloco */
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  /* Animação suave ao passar o mouse ou clicar */
+
+  display: flex; 
+  /* Layout flexível */
+
+  flex-direction: column; 
+  /* Alinha conteúdo verticalmente */
+
+  align-items: center; 
+  /* Centraliza horizontalmente */
 }
 
-/* Estilo para as imagens dentro dos blocos .foto */
+/* Efeito ao passar o mouse por cima */
+.foto:hover {
+  transform: translateY(-5px); 
+  /* Eleva o card para dar destaque */
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); 
+  /* Aumenta a sombra ao passar o mouse */
+}
+
+/* Estilo da imagem */
 .foto img {
-  width: 100%;                            /* Imagem ocupa 100% da largura do bloco */
-  height: auto;                           /* Altura ajustada automaticamente para manter proporção */
-  border-radius: 6px;                     /* Cantos arredondados da imagem */
-  margin-bottom: 8px;                     /* Espaço abaixo da imagem antes do nome */
-  object-fit: cover;                      /* Garante que a imagem preencha a área sem distorcer */
+  width: 100%; 
+  /* Imagem ocupa toda a largura disponível */
+
+  height: auto; 
+  /* Mantém proporção automática */
+
+  border-radius: 10px; 
+  /* Cantos levemente arredondados */
+
+  object-fit: cover; 
+  /* Preenche a área da imagem sem distorcer */
+
+  aspect-ratio: 3 / 4; 
+  /* Mantém todas as imagens na mesma proporção vertical (retrato) */
+
+  margin-bottom: 10px; 
+  /* Espaço entre a imagem e o nome */
 }
 
-/* Estilo para o nome do aluno abaixo da foto */
+/* Estilo do nome do aluno */
 .nome {
-  font-weight: 600;                       /* Negrito moderado */
-  font-size: 1rem;                        /* Tamanho padrão de fonte */
-  text-align: center;                     /* Centraliza o texto */
+  font-weight: 600; 
+  /* Negrito leve */
+
+  font-size: 1rem; 
+  /* Tamanho padrão de texto */
+
+  text-align: center; 
+  /* Centraliza o nome */
+
+  color: #444; 
+  /* Cor intermediária entre cinza claro e escuro */
 }
 
-/* Estilo especial para a foto em destaque (quando clicada) */
+/* Quando uma foto é clicada para virar principal */
 .foto.principal {
-  grid-column: span 3;                    /* Ocupa 3 colunas da grade */
-  grid-row: span 3;                       /* Ocupa 3 linhas da grade */
-  padding: 20px;                          /* Mais espaço interno */
-  z-index: 10;                            /* Coloca o item acima dos outros (em profundidade) */
-  transform: scale(1.1);                  /* Aumenta o tamanho do bloco em 10% */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra mais forte para destaque */
+  grid-column: span 3; 
+  /* Ocupa 3 colunas na grid */
+
+  grid-row: span 3; 
+  /* Ocupa 3 linhas na grid */
+
+  padding: 20px; 
+  /* Mais espaço interno */
+
+  z-index: 10; 
+  /* Garante que fique acima das outras */
+
+  transform: scale(1.05); 
+  /* Aumenta levemente o tamanho */
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); 
+  /* Sombra mais intensa para destaque */
+
+  background-color: #ffffff; 
+  /* Fundo branco sólido */
 }
 
-/* Estilo da imagem quando está em destaque */
+/* Imagem quando está em destaque */
 .foto.principal img {
-  border-radius: 10px;                    /* Cantos mais arredondados na imagem em destaque */
+  border-radius: 14px; 
+  /* Cantos ainda mais arredondados */
 }
 
-/* Estilo do nome quando a foto está em destaque */
+/* Nome quando a foto está em destaque */
 .foto.principal .nome {
-  font-size: 1.3rem;                      /* Nome fica maior para acompanhar o destaque */
-}
+  font-size: 1.3rem; 
+  /* Aumenta o tamanho da fonte */
 
+  color: #222; 
+  /* Cor mais forte para dar destaque */
+}
