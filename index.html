@@ -112,22 +112,46 @@
     </div> 
   </div> <!-- Fim da galeria --> 
   <script> 
-    const galeria = document.getElementById('galeria'); // Pega o container da galeria pelo ID 
-    let fotoPrincipal = null; // Variável para guardar qual foto está em destaque 
-    galeria.addEventListener('click', e => { // Evento ao clicar na galeria 
-      const foto = e.target.closest('.foto'); // Pega o elemento da foto clicada 
-      if (!foto) return; // Se não clicou numa foto, não faz nada 
-      if (fotoPrincipal) { // Se já existe uma foto principal 
-        if (fotoPrincipal === foto) { // Se clicou na mesma, tira o destaque 
-          foto.classList.remove('principal'); 
-          fotoPrincipal = null; 
-          return; 
-        } 
-        fotoPrincipal.classList.remove('principal'); // Remove destaque da anterior 
-      } 
-      foto.classList.add('principal'); // Adiciona destaque à nova foto clicada 
-      fotoPrincipal = foto; // Atualiza a variável com a nova principal 
-    }); 
+ const galeria = document.getElementById('galeria');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalCaption = document.getElementById('modalCaption');
+const modalClose = document.getElementById('modalClose');
+
+galeria.addEventListener('click', e => {
+  const foto = e.target.closest('.foto');
+  if (!foto) return;
+
+  // Pega a imagem e legenda do card clicado
+  const img = foto.querySelector('img');
+  const caption = foto.querySelector('.nome').textContent;
+
+  // Abre o modal e coloca a imagem e legenda
+  modal.style.display = 'flex';
+  modalImg.src = img.src;
+  modalImg.alt = img.alt;
+  modalCaption.textContent = caption;
+});
+
+// Fecha o modal ao clicar no X
+modalClose.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Fecha o modal ao clicar fora da imagem
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
   </script> 
+  <!-- Modal para imagem ampliada -->
+<div id="modal" class="modal" style="display:none;">
+  <span id="modalClose" class="modal-close">&times;</span>
+  <img class="modal-content" id="modalImg" alt="Imagem ampliada" />
+  <div id="modalCaption" class="modal-caption"></div>
+</div>
+
 </body> 
 </html>
