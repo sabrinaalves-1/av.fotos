@@ -33,7 +33,7 @@ body {
 
 /* Cada bloco de foto */
 .foto {
-  background: #ffffff;
+  background: #a8d5ba; /* Verde claro */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -43,6 +43,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 
 /* Efeito ao passar o mouse por cima */
 .foto:hover {
