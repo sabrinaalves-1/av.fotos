@@ -13,7 +13,7 @@ body {
   margin-bottom: 40px; /* Adiciona uma margem de 40px abaixo do título */
   font-weight: 900; /* Define a espessura da fonte como 900 (bem negrito) */
   font-size: 3rem; /* Define o tamanho da fonte como 3 rem */
-  background: linear-gradient(90deg, #4b5320, #7c9a33); /* Aplica um gradiente de verde no fundo do texto */
+  background: linear-gradient(90deg, #19703a, #87bf75); /* Aplica um gradiente de verde no fundo do texto */
   -webkit-background-clip: text; /* Faz o gradiente aparecer somente nas letras (necessário para Webkit) */
   -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente para deixar o gradiente visível */
   letter-spacing: 2px; /* Aumenta o espaçamento entre as letras */
