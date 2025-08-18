@@ -1,118 +1,118 @@
 /* Corpo da página */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #2ecc71; /* Verde suave */
-  margin: 0;
-  padding: 40px 20px;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte padrão para o corpo da página */
+  background-color: #2ecc71; /* Verde suave (fundo da página) */
+  margin: 0; /* Remove a margem padrão do corpo da página */
+  padding: 40px 20px; /* Define o preenchimento interno de 40px no topo e embaixo e 20px nas laterais */
+  color: #333; /* Define a cor do texto como cinza escuro */
 }
 
-
+/* Título principal */
 .titulo {
-  text-align: center;
-  margin-bottom: 40px;
-  font-weight: 900;
-  font-size: 3rem;
-  background: linear-gradient(90deg, #4b5320, #7c9a33); /* Gradiente de verde musgo */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center; /* Alinha o título no centro da página */
+  margin-bottom: 40px; /* Adiciona uma margem de 40px abaixo do título */
+  font-weight: 900; /* Define a espessura da fonte como 900 (bem negrito) */
+  font-size: 3rem; /* Define o tamanho da fonte como 3 rem */
+  background: linear-gradient(90deg, #4b5320, #7c9a33); /* Aplica um gradiente de verde no fundo do texto */
+  -webkit-background-clip: text; /* Faz o gradiente aparecer somente nas letras (necessário para Webkit) */
+  -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente para deixar o gradiente visível */
+  letter-spacing: 2px; /* Aumenta o espaçamento entre as letras */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15); /* Adiciona uma leve sombra ao texto */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a mesma fonte que o corpo da página */
 }
 
 /* Container que organiza as fotos em grid */
 .galeria {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  max-width: 1200px; /* Define a largura máxima do container da galeria */
+  margin: 0 auto; /* Centraliza a galeria na página */
+  display: grid; /* Utiliza o modelo de layout Grid */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Organiza as fotos em colunas, com largura mínima de 180px */
+  gap: 20px; /* Define o espaçamento entre as fotos (20px) */
 }
 
 /* Cada bloco de foto */
 .foto {
-  background: #a8d5ba; /* Verde claro */
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  padding: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: #a8d5ba; /* Define a cor de fundo de cada bloco de foto com verde claro */
+  border-radius: 12px; /* Arredonda os cantos do bloco de foto */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra ao redor do bloco */
+  cursor: pointer; /* Altera o cursor para a mãozinha quando o mouse passa sobre o bloco */
+  padding: 12px; /* Adiciona preenchimento interno de 12px */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona uma transição suave para os efeitos de transformação e sombra */
+  display: flex; /* Utiliza Flexbox para o layout interno do bloco */
+  flex-direction: column; /* Organiza os itens do bloco em coluna (verticalmente) */
+  align-items: center; /* Alinha o conteúdo centralizado */
 }
-
 
 /* Efeito ao passar o mouse por cima */
 .foto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* Move o bloco de foto ligeiramente para cima */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Aumenta a sombra e destaca o bloco */
 }
 
 /* Estilo da imagem */
 .foto img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  aspect-ratio: 3 / 4;
-  margin-bottom: 10px;
+  width: 100%; /* Define a largura da imagem como 100% do tamanho do container */
+  height: auto; /* Mantém a proporção da imagem automaticamente */
+  border-radius: 10px; /* Arredonda os cantos da imagem */
+  object-fit: cover; /* Faz a imagem cobrir completamente o espaço disponível */
+  aspect-ratio: 3 / 4; /* Define a proporção da imagem como 3:4 (largura:altura) */
+  margin-bottom: 10px; /* Adiciona uma margem inferior de 10px entre a imagem e o nome */
 }
 
 /* Estilo do nome do aluno */
 .nome {
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  color: #444;
+  font-weight: 600; /* Define o peso da fonte como semi-negrito */
+  font-size: 1rem; /* Define o tamanho da fonte como 1 rem */
+  text-align: center; /* Alinha o nome ao centro */
+  color: #444; /* Define a cor do texto como cinza escuro */
 }
 
 /* Modal: tela cheia com fundo escuro semi-transparente */
 .modal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  position: fixed; /* Define a posição do modal como fixa na tela */
+  z-index: 1000; /* Define a ordem de sobreposição, garantindo que o modal fique acima dos outros elementos */
+  left: 0; /* Alinha o modal à esquerda da tela */
+  top: 0; /* Alinha o modal ao topo da tela */
+  width: 100%; /* Define a largura do modal como 100% da tela */
+  height: 100%; /* Define a altura do modal como 100% da tela */
+  background-color: rgba(0, 0, 0, 0.9); /* Aplica um fundo preto com opacidade de 90% */
+  display: none; /* Inicialmente o modal está escondido */
+  justify-content: center; /* Centraliza o conteúdo do modal horizontalmente */
+  align-items: center; /* Centraliza o conteúdo do modal verticalmente */
+  flex-direction: column; /* Organiza os elementos do modal em coluna */
 }
 
 /* Imagem ampliada dentro do modal */
 .modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
-  margin-bottom: 15px;
+  max-width: 90%; /* Define a largura máxima da imagem no modal como 90% da tela */
+  max-height: 90%; /* Define a altura máxima da imagem no modal como 90% da tela */
+  border-radius: 10px; /* Arredonda os cantos da imagem ampliada */
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7); /* Adiciona uma sombra clara ao redor da imagem */
+  margin-bottom: 15px; /* Adiciona uma margem inferior de 15px entre a imagem e a legenda */
 }
 
 /* Legenda da imagem */
 .modal-caption {
-  color: #ccc;
-  font-size: 1.2rem;
-  text-align: center;
-  max-width: 90%;
+  color: #ccc; /* Define a cor da legenda como cinza claro */
+  font-size: 1.2rem; /* Define o tamanho da fonte da legenda como 1.2 rem */
+  text-align: center; /* Centraliza o texto da legenda */
+  max-width: 90%; /* Define a largura máxima da legenda como 90% da tela */
 }
 
 /* Botão fechar */
 .modal-close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
+  position: absolute; /* Posiciona o botão de fechar de forma absoluta dentro do modal */
+  top: 20px; /* Posiciona o botão 20px a partir do topo do modal */
+  right: 35px; /* Posiciona o botão 35px a partir da direita do modal */
+  color: #fff; /* Define a cor do texto do botão como branco */
+  font-size: 40px; /* Define o tamanho da fonte do botão como 40px */
+  font-weight: bold; /* Define o peso da fonte do botão como negrito */
+  cursor: pointer; /* Altera o cursor para a mãozinha quando o mouse passa sobre o botão */
+  user-select: none; /* Impede que o usuário selecione o texto do botão */
+  transition: color 0.3s ease; /* Adiciona uma transição suave para a cor do botão */
 }
 
+/* Efeito no botão de fechar ao passar o mouse */
 .modal-close:hover {
-  color: #bbb;
+  color: #bbb; /* Muda a cor do botão para cinza claro quando o mouse passa por cima */
 }
